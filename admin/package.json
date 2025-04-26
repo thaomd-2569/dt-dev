@@ -1,5 +1,8 @@
 {
-  "name": "nuxt-app",
+  "name": "dt-dev-admin",
+  "author": {
+    "name": "dt-dev"
+  },
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,10 +13,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "autoprefixer": "^10.4.21",
     "nuxt": "^3.16.2",
-    "postcss": "^8.5.3",
-    "tailwindcss": "^4.1.4",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },
