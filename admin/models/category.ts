@@ -5,6 +5,7 @@ export type CategoryType = {
     title: string
     description: string
     position: number
+    status: number
 }
 
 export default class CategoryModel extends CommonModel {
@@ -12,6 +13,7 @@ export default class CategoryModel extends CommonModel {
     title: string
     description: string
     position: number
+    status: number
 
     constructor(props?: CategoryType) {
         super()
@@ -19,5 +21,6 @@ export default class CategoryModel extends CommonModel {
         this.title = props?.title ?? ''
         this.description = props?.description ?? ''
         this.position = props?.position ?? 0
+        this.status = props?.status ?? 0
     }
 }

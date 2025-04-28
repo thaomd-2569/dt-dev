@@ -1,41 +1,38 @@
-// import { EHttpMethod } from '~/enums/common'
-// import type {
-//   IGenerateUploadImageUrlRequestBody,
-//   IGenerateUploadImageUrlResponse,
-//   IUploadFileToS3RequestBody,
-// } from '~/types/upload'
+import { EHttpMethod } from '~/enums/common'
+import type { IGenerateUploadImageUrlRequestBody, IGenerateUploadImageUrlResponse, IUploadFileToS3RequestBody } from '~/types/upload'
 
-// export interface ICommonRepo {
-//   generateUploadImageUrl: (
-//     body: IGenerateUploadImageUrlRequestBody,
-//   ) => Promise<IGenerateUploadImageUrlResponse>
-//   uploadFileToS3: (body: IUploadFileToS3RequestBody) => Promise<any>
-// }
 
-// export const CommonRepo = (fetcher: typeof $fetch): ICommonRepo => {
-//   return {
-//     generateUploadImageUrl: async (body) => {
-//       return await fetcher('/file/presigned-upload-url', {
-//         method: EHttpMethod.POST,
-//         body,
-//       })
-//     },
+export interface ICommonRepo {
+    generateUploadImageUrl: (
+        body: IGenerateUploadImageUrlRequestBody,
+    ) => Promise<IGenerateUploadImageUrlResponse>
+    uploadFileToS3: (body: IUploadFileToS3RequestBody) => Promise<any>
+}
 
-//     uploadFileToS3: async ({ url, presignedFormInput, file }) => {
-//       const formData = new FormData()
+export const CommonRepo = (fetcher: typeof $fetch): ICommonRepo => {
+    return {
+        generateUploadImageUrl: async (body) => {
+            return await fetcher('/file/presigned-upload-url', {
+                method: EHttpMethod.POST,
+                body,
+            })
+        },
 
-//       Object.keys(presignedFormInput).forEach((key) => {
-//         formData.append(key, presignedFormInput[key])
-//       })
+        uploadFileToS3: async ({ url, presignedFormInput, file }) => {
+            const formData = new FormData()
 
-//       formData.append('file', file)
+            Object.keys(presignedFormInput).forEach((key) => {
+                formData.append(key, presignedFormInput[key])
+            })
 
-//       const response = await fetch(url, {
-//         method: EHttpMethod.POST,
-//         body: formData,
-//       })
+            formData.append('file', file)
 
-//       return response
-//     },
-//   }
-// }
+            const response = await fetch(url, {
+                method: EHttpMethod.POST,
+                body: formData,
+            })
+
+            return response
+        },
+    }
+}

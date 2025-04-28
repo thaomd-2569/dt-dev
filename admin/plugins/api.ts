@@ -159,26 +159,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 
     /** an object containing all repositories we need to expose */
     const repositories: IApiInstance = {
-        common: CommonRepo(apiFetcher),
+        // common: CommonRepo(apiFetcher),
         auth: AuthRepo(apiFetcher),
-        sakeList: SakeRepo(apiFetcher),
-        company: CompanyRepo(apiFetcher),
-        shop: ShopRepo(apiFetcher),
-        recommend: RecommendRepo(apiFetcher),
-        pickupSection: PickupSectionRepo(apiFetcher),
-        sakeMenu: SakeMenuRepo(apiFetcher),
-        sakeRegistrationStatus: SakeRegistrationStatusRepo(apiFetcher),
-        wineRegistrationStatus: WineRegistrationStatusRepo(apiFetcher),
-        batchResult: BatchResultListRepo(apiFetcher),
-        shopRegistrationStatus: ShopRegistrationStatusRepo(apiFetcher),
-        batchResultDetail: BatchResultDetailRepo(apiFetcher),
-        changePassword: ChangePasswordRepo(apiFetcher),
-        device: DeviceRepo(apiFetcher),
-        settingsForPriceOption: SettingsForPriceOptionRepo(apiFetcher),
-        displayModeSetting: DisplayModeSettingRepo(apiFetcher),
-        wineShopRegistrationStatus: WineShopRegistrationStatusRepo(apiFetcher),
-        drinkMenu: DrinkMenuRepo(apiFetcher),
-        drinkMenuRegister: DrinkMenuRegisterRepo(apiFetcher),
         category: CategoryRepo(apiFetcher),
     }
 
