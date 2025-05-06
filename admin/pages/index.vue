@@ -61,3 +61,12 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
 </style>
+
+<script setup>
+definePageMeta({
+  layout: 'default',
+  middleware: [
+    'auth'
+  ],
+})
+</script>

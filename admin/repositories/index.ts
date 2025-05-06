@@ -27,18 +27,17 @@ declare global {
     type_food: boolean
   }
 
-  interface IUser {
+  interface IManager {
     id: number
     login_id: string
     role: number
-    shop: IShop | null
   }
 
   interface ILoginResponse {
     data: {
       refresh_token: IToken
       access_token: IToken
-      admin?: IUser
+      admin?: IManager
     }
   }
 
@@ -50,7 +49,7 @@ declare global {
   }
 
   interface IGetProfileResponse {
-    data: IUser
+    data: IManager
   }
 
   interface IAuthError {

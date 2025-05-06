@@ -50,3 +50,9 @@ export {
     COOKIE_MAX_AGE_IN_SECS,
     HTTP_STATUS_CODE
 }
+
+// Inactivity threshold
+export const INACTIVITY_THRESHOLD = 2 * 60 * 60 * 1000 // 2 hours
+export const UPDATE_LAST_ACTIVE_TIME_PERIOD = 1 * 60 * 1000 // 1 minute
+export const LAST_ACTIVE_TIME_KEY = 'last_active_time'
+export const DOWNLOAD_TIMEOUT = 600 // 10 minutes

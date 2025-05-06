@@ -1,15 +1,25 @@
-// define the app routers for the admin
-export default{
-    // common routers
-    HOME: '/',
-    LOGIN: '/login',
-    LOGOUT: '/logout',
 
-    // post routers
-    POST_LIST: '/posts',
-    POST_DETAIL: '/posts/:id',
-
-    // category routers
-    CATEGORY_LIST: '/categories',
-    CATEGORY_DETAIL: '/categories/:id',
+const CATEGORY_ROUTES = {
+    CATEGORY_MANAGEMENT: '/categories',
 }
+
+
+const routes = {
+    // Common routes
+    LOGIN: '/login',
+    HEALTH_CHECK: '/health-check',
+}
+
+const ROUTES_VALUES = Object.values(routes)
+const UNAUTHENTICATED_ROUTES = [routes.LOGIN, routes.HEALTH_CHECK]
+
+const AUTHENTICATED_ROUTES = UNAUTHENTICATED_ROUTES.filter(
+    (route) => !ROUTES_VALUES.includes(route),
+)
+
+export {
+    UNAUTHENTICATED_ROUTES,
+    AUTHENTICATED_ROUTES,
+    CATEGORY_ROUTES,
+}
+export default routes

@@ -1,4 +1,4 @@
-<!-- layouts/default.vue -->
+<!-- layouts/dashboard.vue -->
 <template>
     <div class="admin-layout">
         <Header @toggle-sidebar="toggleSidebar" />
@@ -25,7 +25,6 @@
                 </nav>
             </aside>
             <main class="content">
-                <!-- This is where page content will be injected -->
                 <slot />
             </main>
         </div>
@@ -43,6 +42,14 @@ const isSidebarCollapsed = ref(false);
 const toggleSidebar = () => {
     isSidebarCollapsed.value = !isSidebarCollapsed.value;
 };
+
+// definePageMeta({
+//   layout: 'dashboard',
+//   middleware: [
+//     function (to, from) {
+//     },
+//   ],
+// })
 </script>
 
 <style scoped>

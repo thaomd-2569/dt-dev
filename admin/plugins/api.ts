@@ -41,16 +41,14 @@ export default defineNuxtPlugin((nuxtApp) => {
         watch: true,
     })
 
-    const { API_BASE_URL, API_SAKE_BA } = nuxtApp.$config.public
+    const { API_BASE_URL } = nuxtApp.$config.public
     const unAuthUrls = UNAUTH_URLS.map((url) => `${API_BASE_URL}${url}`)
     const fetchOptions: FetchOptions = { baseURL: API_BASE_URL }
 
-    function getHeader(token: string, shopId?: string) {
+    function getHeader(token: string) {
         return {
             'X-Authorization': token ? `Bearer ${token}` : '',
-            'X-Sake-BA': API_SAKE_BA,
             Accept: 'application/json',
-            ...(shopId ? { 'X-Shop-Id': shopId } : {}),
         }
     }
 
@@ -67,9 +65,8 @@ export default defineNuxtPlugin((nuxtApp) => {
         ...fetchOptions,
         onRequest({ options }: FetchContext) {
             const authStore = (nuxtApp.$pinia as Pinia).state.value.auth
-            const shopId = authStore.shopIdByRoleSTM
 
-            options.headers = getHeader(accessToken.value, shopId)
+            options.headers = getHeader(accessToken.value)
         },
         async onResponse(context) {
             const statusCode = context.response.status

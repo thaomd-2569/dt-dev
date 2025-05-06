@@ -12,6 +12,16 @@
 <script setup>
 import Table from 'ant-design-vue/es/table/Table';
 import { EyeTwoTone,  EyeInvisibleTwoTone } from '@ant-design/icons-vue';
+// const sakeListStore = useSakeListStore()
+
+const fetchData = async () => {
+  // Simulate an API call to fetch data
+
+};
+
+onMounted(() => {
+  // Fetch data from API or perform any other setup
+});
 
 // Sample JSON data for the table
 const data = [

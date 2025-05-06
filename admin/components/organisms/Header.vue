@@ -36,7 +36,7 @@
                         <div class="avatar">
                             <img src="https://i.pravatar.cc/100" alt="User avatar" />
                         </div>
-                        <span class="username">{{ user.name }}</span>
+                        <span class="username">{{ authStore.user.role }}</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="chevron-icon">
@@ -57,17 +57,15 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import appRouters from '~/constants/appRouters'
 
 const isUserMenuOpen = ref(false);
 const notificationCount = ref(3);
 const userMenuRef = ref(null);
+const authStore = useAuthStore()
 
 // Define user data to match what's shown in the screenshot
-const user = ref({
-    name: 'John Doe',
-    email: 'john.doe@example.com',
-    role: 'Administrator'
-});
+console.log('user', authStore.user.role)
 
 const toggleUserMenu = () => {
     isUserMenuOpen.value = !isUserMenuOpen.value;
@@ -78,9 +76,10 @@ const toggleSidebar = () => {
     emit('toggle-sidebar');
 };
 
-const logout = () => {
-    // Handle logout functionality
-    console.log('Logging out...');
+const logout = async () => {
+    await authStore.logout()
+    // authStore.clearLocalStorage()
+    return navigateTo(appRouters.LOGIN)
 };
 
 // Define the event to be emitted
