@@ -1,9 +1,7 @@
 <?php
 
-
 namespace Modules\Admin\App\Services\Admin;
 
-use App\Models\User\Admin;
 use Illuminate\Support\Facades\DB;
 use Laravel\Sanctum\NewAccessToken;
 use Modules\Admin\App\Contracts\Repositories\UserTokenPairRepositoryInterface;

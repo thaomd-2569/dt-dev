@@ -2,11 +2,9 @@
 
 namespace Modules\Admin\App\Services;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Facades\Hash;
 use Modules\Admin\App\Contracts\Repositories\CategoryRepositoryInterface;
-use Modules\Admin\App\Contracts\Repositories\ManagerRepositoryInterface;
-use Modules\Admin\App\Models\Manager;
 
 class CategoryService
 {
@@ -20,5 +18,12 @@ class CategoryService
     public function getCategories(array $conditions = []): Collection
     {
         return $this->repository->getCategories($conditions);
+    }
+
+    public function update(Category $category, array $data): Category
+    {
+        $category->update($data);
+
+        return $category;
     }
 }

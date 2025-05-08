@@ -17,7 +17,7 @@ class ManagerRepository extends AbstractRepository implements ManagerRepositoryI
     {
         return $this->model
             ->newQuery()
-            ->when(!empty($conditions['login_id']), function ($query) use ($conditions) {
+            ->when(! empty($conditions['login_id']), function ($query) use ($conditions) {
                 $query->where('login_id', $conditions['login_id']);
             })
             ->first();

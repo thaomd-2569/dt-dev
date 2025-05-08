@@ -31,7 +31,8 @@ class AuthResource extends BaseResource
         ];
     }
 
-    public function me() {
+    public function me()
+    {
         return $this->resource;
     }
 }

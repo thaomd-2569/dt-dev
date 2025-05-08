@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Models\Traits;
 
 use Laravel\Sanctum\HasApiTokens as HasApiTokensBase;

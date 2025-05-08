@@ -169,7 +169,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        //Admin
+        // Admin
         App\Modules\Admin\Providers\AdminServiceProvider::class,
     ])->toArray(),
 

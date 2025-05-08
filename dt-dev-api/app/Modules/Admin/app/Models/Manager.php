@@ -2,10 +2,11 @@
 
 namespace Modules\Admin\App\Models;
 
+use App\Enums\Admin\AdminRole;
 use App\Models\Traits\HasApiTokens;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Manager extends Authenticatable
 {
@@ -43,5 +44,10 @@ class Manager extends Authenticatable
     public function getRoleAttribute()
     {
         return $this->role()->first()->name ?? null;
+    }
+
+    public function isAdmin()
+    {
+        return $this->role === AdminRole::ADMIN;
     }
 }

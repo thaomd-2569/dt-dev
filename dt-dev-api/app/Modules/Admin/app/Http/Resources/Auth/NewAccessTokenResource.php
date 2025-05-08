@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Modules\Admin\App\Http\Resources\Auth;
 
 use App\Http\Resources\BaseResource;

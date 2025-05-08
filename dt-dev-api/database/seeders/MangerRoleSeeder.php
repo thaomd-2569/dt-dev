@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Modules\Admin\App\Models\ManagerRole;
 use Illuminate\Database\Seeder;
+use Modules\Admin\App\Models\ManagerRole;
 
 class MangerRoleSeeder extends Seeder
 {
@@ -18,7 +18,7 @@ class MangerRoleSeeder extends Seeder
             ],
             [
                 'name' => 'Admin',
-            ]
+            ],
         ]);
     }
 }

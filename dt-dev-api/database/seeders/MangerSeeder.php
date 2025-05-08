@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Database\Seeder;
 use Modules\Admin\App\Models\Manager;
 use Modules\Admin\App\Models\ManagerRole;
-use Illuminate\Database\Seeder;
 
 class MangerSeeder extends Seeder
 {

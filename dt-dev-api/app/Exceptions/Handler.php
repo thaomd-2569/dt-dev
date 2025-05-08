@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Exceptions;
 
 use App\Concerns\ExpectResponseJson;
